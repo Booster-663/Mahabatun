@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автовоспроизведение аудио</title>
+</head>
+<body>
+    <script>
+        // Создаем аудио элемент
+        const audio = new Audio("audio.mp3");
+
+        // Web Audio API для усиления звука
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const source = audioContext.createMediaElementSource(audio);
+        const gainNode = audioContext.createGain();
+        
+        gainNode.gain.value = 2.0; // Увеличиваем громкость в 2 раза
+
+        source.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        // Разблокируем Web Audio API после взаимодействия с пользователем
+        document.addEventListener("click", () => {
+            audioContext.resume().then(() => {
+                audio.play().catch(error => console.error("Ошибка воспроизведения:", error));
+            });
+        }, { once: true });
+
+    </script>
+</body>
+</html>
