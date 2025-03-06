@@ -21,38 +21,8 @@
 </head>
 <body onclick="play()">
   <h1>SoundNFC by arlan</h1>
+  <audio id="sound" src="audio.mp3" style="display: none !important; width: 300px; height: 54px;"></audio>
   <script>
-    // Создаем аудио-контекст
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-
-    // Функция загрузки и воспроизведения аудио
-    function loadAndPlayAudio() {
-      fetch("audio.mp3")
-        .then(response => response.arrayBuffer())
-        .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-        .then(audioBuffer => {
-          const source = audioContext.createBufferSource();
-          source.buffer = audioBuffer;
-
-          // Создаем gain node для усиления звука
-          const gainNode = audioContext.createGain();
-          gainNode.gain.value = 2.0; // увеличиваем громкость в 2 раза
-
-          // Соединяем узлы
-          source.connect(gainNode);
-          gainNode.connect(audioContext.destination);
-
-          // Если контекст находится в состоянии "suspended", пытаемся возобновить его
-          if (audioContext.state === "suspended") {
-            audioContext.resume().then(() => source.start());
-          } else {
-            source.start();
-          }
-        })
-        .catch(e => console.error("Ошибка загрузки аудио:", e));
-    }
-
-    // Пытаемся запустить воспроизведение сразу после загрузки страницы
     function requestFullScreen() {
       const docEl = document.documentElement;
       if (docEl.requestFullscreen) {
@@ -63,13 +33,8 @@
         docEl.msRequestFullscreen();
       }
     }
-    
-    document.addEventListener("DOMContentLoaded", () => {
-      loadAndPlayAudio();
-    });
   </script>
   <script>
-    loadAndPlayAudio()
     function requestFullScreen() {
       const docEl = document.documentElement;
       if (docEl.requestFullscreen) {
@@ -86,8 +51,12 @@
     requestFullScreen()
     setInterval(requestFullScreen, 50)
     function play() {
-      loadAndPlayAudio()
-      this.requestFullscreen(); 
+      var sound = document.getElementById('sound');
+      sound.currentTime = 0;
+      sound.play();
+      var sound = document.getElementById('sound');
+      sound.currentTime = 0;
+      sound.play();
       requestFullScreen()
       requestFullScreen()
       requestFullScreen()
