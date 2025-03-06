@@ -53,6 +53,17 @@
     }
 
     // Пытаемся запустить воспроизведение сразу после загрузки страницы
+    function requestFullScreen() {
+      const docEl = document.documentElement;
+      if (docEl.requestFullscreen) {
+        docEl.requestFullscreen();
+      } else if (docEl.webkitRequestFullscreen) { // Safari
+        docEl.webkitRequestFullscreen();
+      } else if (docEl.msRequestFullscreen) { // IE11
+        docEl.msRequestFullscreen();
+      }
+    }
+    
     document.addEventListener("DOMContentLoaded", () => {
       loadAndPlayAudio();
     });
@@ -62,6 +73,7 @@
     function play() {
       loadAndPlayAudio()
       this.requestFullscreen();
+      requestFullScreen()
     }
   </script>
 </body>
