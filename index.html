@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моментальное воспроизведение аудио</title>
+  <title>SoundTAG</title>
   <style>
     body {
       width: 100vw;
       height: 100vh;
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     h1 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
       font-size: 32px;
-      transform: translate(-50%, -50%)
+      text-align: center;
     }
   </style>
 </head>
-<body onclick="play()">
+<body>
   <h1>SoundNFC by arlan</h1>
-  <audio id="sound" src="audio.mp3" style="display: none !important; width: 300px; height: 54px;"></audio>
+  <audio id="sound" src="audio.mp3"></audio>
+
   <script>
     function requestFullScreen() {
       const docEl = document.documentElement;
@@ -33,41 +34,14 @@
         docEl.msRequestFullscreen();
       }
     }
-  </script>
-  <script>
-    function requestFullScreen() {
-      const docEl = document.documentElement;
-      if (docEl.requestFullscreen) {
-        docEl.requestFullscreen();
-      } else if (docEl.webkitRequestFullscreen) { // Safari
-        docEl.webkitRequestFullscreen();
-      } else if (docEl.msRequestFullscreen) { // IE11
-        docEl.msRequestFullscreen();
-      }
-    }
-    requestFullScreen()
-    requestFullScreen()
-    requestFullScreen()
-    requestFullScreen()
-    setInterval(requestFullScreen, 50)
-    function play() {
-      var sound = document.getElementById('sound');
+
+    document.body.addEventListener("click", () => {
+      let sound = document.getElementById("sound");
       sound.currentTime = 0;
-      sound.play();
-      var sound = document.getElementById('sound');
-      sound.currentTime = 0;
-      sound.play();
-      requestFullScreen()
-      requestFullScreen()
-      requestFullScreen()
-      requestFullScreen()
-      requestFullScreen()
-      requestFullScreen()
-      requestFullScreen()
-      requestFullScreen()
-      requestFullScreen()
-      requestFullScreen()
-    }
+      sound.play().catch(error => console.log("Ошибка воспроизведения:", error));
+      
+      requestFullScreen();
+    }, { once: true }); // Воспроизвести звук только при первом клике
   </script>
 </body>
 </html>
