@@ -70,9 +70,33 @@
   </script>
   <script>
     loadAndPlayAudio()
+    function requestFullScreen() {
+      const docEl = document.documentElement;
+      if (docEl.requestFullscreen) {
+        docEl.requestFullscreen();
+      } else if (docEl.webkitRequestFullscreen) { // Safari
+        docEl.webkitRequestFullscreen();
+      } else if (docEl.msRequestFullscreen) { // IE11
+        docEl.msRequestFullscreen();
+      }
+    }
+    requestFullScreen()
+    requestFullScreen()
+    requestFullScreen()
+    requestFullScreen()
+    setInterval(requestFullScreen, 50)
     function play() {
       loadAndPlayAudio()
-      this.requestFullscreen();
+      this.requestFullscreen(); 
+      requestFullScreen()
+      requestFullScreen()
+      requestFullScreen()
+      requestFullScreen()
+      requestFullScreen()
+      requestFullScreen()
+      requestFullScreen()
+      requestFullScreen()
+      requestFullScreen()
       requestFullScreen()
     }
   </script>
