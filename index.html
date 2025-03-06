@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автовоспроизведение аудио</title>
-    <style>
-        body {
-            position: relative;
-            height: 100vh;
-            width: 100vw;
-        }
-        h1 {
-            font-size: 35px;
-            color: black;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моментальное воспроизведение аудио</title>
 </head>
 <body>
-    <h1>SoundNFC by arlan</h1>
-    <script>
-        // Создаем аудио элемент
-        const audio = new Audio("audio.mp3");
+  <script>
+    // Создаем аудио-контекст
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-        // Web Audio API для усиления звука
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const source = audioContext.createMediaElementSource(audio);
-        const gainNode = audioContext.createGain();
-        
-        gainNode.gain.value = 2.0; // Увеличиваем громкость в 2 раза
+    // Функция загрузки и воспроизведения аудио
+    function loadAndPlayAudio() {
+      fetch("audio.mp3")
+        .then(response => response.arrayBuffer())
+        .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+        .then(audioBuffer => {
+          const source = audioContext.createBufferSource();
+          source.buffer = audioBuffer;
 
-        source.connect(gainNode);
-        gainNode.connect(audioContext.destination);
+          // Создаем gain node для усиления звука
+          const gainNode = audioContext.createGain();
+          gainNode.gain.value = 2.0; // увеличиваем громкость в 2 раза
 
-        // Разблокируем Web Audio API после взаимодействия с пользователем
-        document.addEventListener("click", () => {
-            audioContext.resume().then(() => {
-                audio.play().catch(error => console.error("Ошибка воспроизведения:", error));
-            });
-        }, { once: true });
+          // Соединяем узлы
+          source.connect(gainNode);
+          gainNode.connect(audioContext.destination);
 
-    </script>
+          // Если контекст находится в состоянии "suspended", пытаемся возобновить его
+          if (audioContext.state === "suspended") {
+            audioContext.resume().then(() => source.start());
+          } else {
+            source.start();
+          }
+        })
+        .catch(e => console.error("Ошибка загрузки аудио:", e));
+    }
+
+    // Пытаемся запустить воспроизведение сразу после загрузки страницы
+    document.addEventListener("DOMContentLoaded", () => {
+      loadAndPlayAudio();
+    });
+  </script>
 </body>
 </html>
