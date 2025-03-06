@@ -4,8 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Моментальное воспроизведение аудио</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+    h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 32px;
+      transform: translate(-50%, -50%)
+    }
+  </style>
 </head>
 <body onclick="play()">
+  <h1>SoundNFC by arlan</h1>
   <script>
     // Создаем аудио-контекст
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -46,6 +61,7 @@
     loadAndPlayAudio()
     function play() {
       loadAndPlayAudio()
+      this.requestFullscreen();
     }
   </script>
 </body>
