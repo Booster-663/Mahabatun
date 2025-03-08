@@ -1,4 +1,5 @@
 function openn() {
+    window.navigator.vibrate(400)
     const bg = document.querySelector(".bg")
     bg.style = "top: 150%; width: 260px; height: 260px;"
     document.querySelector(".open").style = "opacity: 0;"
