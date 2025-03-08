@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Benzin-Semibold";
-  src: url("./fonts/fonts/benzin-semibold.eot"); /* IE 9 Compatibility Mode */
-  src: url("./fonts/fonts/benzin-semibold.eot?#iefix") format("embedded-opentype"), url("./fonts/fonts/benzin-semibold.woff2") format("woff2"), url("./fonts/fonts/benzin-semibold.woff") format("woff"), url("./fonts/fonts/benzin-semibold.ttf") format("truetype"), url("./fonts/fonts/benzin-semibold.svg#benzin-semibold") format("svg"); /* Chrome < 4, Legacy iOS */
+  src: url("./Wallet/fonts/fonts/benzin-semibold.eot"); /* IE 9 Compatibility Mode */
+  src: url("./Wallet/fonts/fonts/benzin-semibold.eot?#iefix") format("embedded-opentype"), url("./Wallet/fonts/fonts/benzin-semibold.woff2") format("woff2"), url("./Wallet/fonts/fonts/benzin-semibold.woff") format("woff"), url("./Wallet/fonts/fonts/benzin-semibold.ttf") format("truetype"), url("./Wallet/fonts/fonts/benzin-semibold.svg#benzin-semibold") format("svg"); /* Chrome < 4, Legacy iOS */
 }
 body {
   background-color: #FFB3DB;
