@@ -1,0 +1,194 @@
+@font-face {
+  font-family: "Benzin-Semibold";
+  src: url("../fonts/benzin-semibold.eot"); /* IE 9 Compatibility Mode */
+  src: url("../fonts/benzin-semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/benzin-semibold.woff2") format("woff2"), url("../fonts/benzin-semibold.woff") format("woff"), url("../fonts/benzin-semibold.ttf") format("truetype"), url("../fonts/benzin-semibold.svg#benzin-semibold") format("svg"); /* Chrome < 4, Legacy iOS */
+}
+body {
+  background-color: #FFB3DB;
+  width: 100vw;
+  height: 100vh;
+}
+body .title {
+  color: black;
+  text-align: center;
+  font-size: 32px;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body .title p {
+  font-family: Benzin-Semibold;
+  margin: 0;
+  padding: 0;
+}
+body .title .end {
+  margin-top: 5px;
+}
+body .back {
+  position: fixed;
+  top: 40px;
+  cursor: pointer;
+  left: 30px;
+}
+body .card-background {
+  position: fixed;
+  width: 100vw;
+  animation: opencards 400ms ease;
+  transition: 400ms ease;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9;
+}
+body .card-background .photo img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .card-background .note .bgg {
+  width: 70vw;
+  height: 50vh;
+  position: absolute;
+  top: 50%;
+  padding: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #FFDD1A;
+}
+body .card-background .note .bgg p {
+  font-family: Benzin-Semibold;
+  font-size: 25px;
+}
+body .card-background .note .bgg .date {
+  position: absolute;
+  bottom: 0;
+}
+body .card-background .halyk {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+body .card-background .kaspi {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+}
+body .card-background .tg {
+  bottom: 10%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+body .wallet {
+  width: 230px;
+  height: 230px;
+  background-color: #6D4624;
+  border-radius: 39px;
+  position: absolute;
+  top: 50%;
+  transition: 400ms ease;
+  overflow: hidden;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .wallet .bg {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 230px;
+  width: 230px;
+  top: 50%;
+  transition: 500ms ease;
+  left: 50%;
+  background-color: #BB6B24;
+}
+body .wallet .notebg {
+  top: 40px;
+  left: 34px;
+  width: 111px;
+  position: absolute;
+  cursor: pointer;
+  height: 75px;
+  border-radius: 18px;
+  background-color: #BB6B24;
+}
+body .wallet .notebg .note {
+  width: 70px;
+  height: 20px;
+  background-color: #FFDD1A;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+}
+body .wallet .cards {
+  background-color: #BB6B24;
+  height: calc(100% - 24px - 40px);
+  width: 60px;
+  cursor: pointer;
+  top: calc(50% + 10px);
+  transform: translateY(-50%);
+  border-radius: 10px;
+  position: absolute;
+  right: 34px;
+}
+body .wallet .cards .card-title {
+  color: white;
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  font-size: 24px;
+  font-family: Benzin-Semibold;
+  transform: translateX(-50%) rotate(-90deg);
+  margin: 0;
+  padding: 0;
+}
+body .wallet .photobg {
+  bottom: 24px;
+  left: 34px;
+  width: 111px;
+  position: absolute;
+  cursor: pointer;
+  height: 88px;
+  border-radius: 18px;
+  background-color: #BB6B24;
+}
+body .wallet .photobg img {
+  position: absolute;
+  top: calc(50% - 20px);
+  left: 50%;
+  width: 103px;
+  height: 100px;
+  z-index: -1;
+  transition: 400ms ease;
+  transform: translate(-50%, -50%);
+}
+body .open {
+  color: white;
+  background-color: #5EC56F;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transition: 500ms ease;
+  transform: translateX(-50%);
+  font-size: 25px;
+  cursor: pointer;
+  font-family: Benzin-Semibold;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+@keyframes opencards {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

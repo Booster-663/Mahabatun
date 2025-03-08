@@ -1,0 +1,12 @@
+{
+  "name": "wallet",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "style": "sass -w style.scss:style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

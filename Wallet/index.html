@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <div class="title">
+            <p>Кошелек</p>
+            <p class="end">Арлана</p>
+        </div>
+        <div class="card-background" style="display: none; opacity: 0;">
+            <div class="back" onclick="back()">
+                <svg width="32" height="30" viewBox="0 0 32 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.585785 13.5858C-0.195264 14.3668 -0.195264 15.6332 0.585784 16.4142L13.3137 29.1421C14.0948 29.9232 15.3611 29.9232 16.1421 29.1421C16.9232 28.3611 16.9232 27.0948 16.1421 26.3137L4.82843 15L16.1421 3.68629C16.9232 2.90524 16.9232 1.63891 16.1421 0.857863C15.3611 0.0768143 14.0948 0.0768142 13.3137 0.857863L0.585785 13.5858ZM32 13L2 13L2 17L32 17L32 13Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="cards" style="display: none">
+                <img src="/halyk.png" alt="" srcset="" class="halyk">
+                <img src="/kaspi.png" alt="" srcset="" class="kaspi">
+                <img src="/tg.png" alt="" srcset="" class="tg">
+            </div>
+            <div class="photo" style="display: none">
+                <img src="/myphoto.png" alt="" srcset="">
+            </div>
+            <div class="note">
+                <div class="bgg">
+                    <p>я хачу стать лучшим праграммистам</p>
+                    <p class="date">07.03.2025</p>
+                </div>
+            </div>
+        </div>
+        <div class="wallet">
+            <div class="photobg" onclick="openPhoto()">
+                <img src="myphoto.png" alt="" srcset="">
+            </div>
+            <div class="notebg" onclick="openNote()">
+                <div class="note"></div>
+            </div>
+            <div class="cards" onclick="openCards()">
+                <p class="card-title">Карты</p>
+            </div>
+            <div class="bg"></div>
+        </div>
+        <p class="open" onclick="openn()">Открыть</p>
+        <script src="script.js"></script>
+    </body>
+</html>
